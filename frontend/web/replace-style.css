@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 21, 2018, 10:21:54 AM
+    Author     : dics
+*/
+
+/*body {
+    font-family: "Verdana", Helvetica Neue,Helvetica,Arial,sans-serif;
+}*/
+select, textarea, input, .btn, .select2-selection.select2-selection--single {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0px;
+    -moz-border-radius:0px;
+    -o-border-radius:0px;
+    font-size: 12px !important;
+}
+.has-error .inbox-details-body input[type="text"],
+.has-error .form-control {
+    border-color: #a94442 !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+    color: #a94442 !important;
+}
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+    color: #a94442 !important;
+}
+
+/*Replace maruti-login.css*/
+#loginbox .main_input_box .add-on {
+     height: 40px; 
+/*     line-height: 30px; */
+}
+#loginbox .main_input_box input {
+    height: 40px;
+}
+#loginbox .controls {
+     padding: 0 20px; 
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    /*border: 2px solid #ddd;*/
+    border: none;
+}
+.table-bordered > tbody > tr > td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.table > thead > tr > th {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.grid-view .ui-toolbar{
+    padding: 10px 3px;
+    font-weight: normal;
+    background-color: #efefef;
+    /*border-bottom: 0px solid #CDCDCD;*/
+    height: 50px;
+}
