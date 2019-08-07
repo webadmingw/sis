@@ -8,8 +8,14 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use yii\helpers\ArrayHelper;
+
 use common\models\Catalog;
+use common\models\Order;
 use common\models\OrderItems;
+use common\models\Cust;
+
+use common\models\SequenceOrder;
 
 use frontend\models\Sales;
 
@@ -59,23 +65,28 @@ class SalesController extends Controller
     }
     
     public function actionAdd(){
-        $model = new Catalog();
-        
+        $model = new Order();
         if ($model->load(Yii::$app->request->post())) {
-            $model->merk='Merk';
-            $model->category_id=1;
-            if(!$model->save()){
-                \Yii::$app->session->setFlash('error', "Data gagal disimpan!");
-            }else{
-                $this->addNewItem($model->id, 0);
-                \Yii::$app->session->setFlash('success', "Data berhasil disimpan!");
-            }
+            
+        }else{
+            $model->inv_no = $this->addSequence();
         }
         
-        return $this->render('form', [
+        return $this->render('form-inv', [
             'model' => $model,
-            'type' => Catalog::$type
+            'terms' => Cust::$terms,
+            'customers' => ArrayHelper::map(Cust::findAll(['status' => Cust::STATUS_ACTIVE]), 'id', 'fullname')
         ]);
+    }
+    
+    private function addSequence(){
+        $model = new SequenceOrder();
+        if($model->save()){
+            return 'INVH-' . str_pad((string)$model->no, 4, "0", STR_PAD_LEFT);
+             
+        }
+        
+        return 'INVH-0000';
     }
     
     public function actionUpdateQty($id){
